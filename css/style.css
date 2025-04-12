@@ -65,3 +65,7 @@ h1 {
   background: #2b2d42;
   border-radius: 3px;
 }
+
+.btn img {
+  height: 30px;
+}
