@@ -6,3 +6,11 @@
   background: #edf2f4;
 }
 
+.calculator {
+  background: #1a1a28;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 10px; 
+}
