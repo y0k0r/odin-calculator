@@ -34,3 +34,11 @@ function operate (a, b, operator) {
       return null;
   }
 }
+
+let currentInput;
+
+function populateDisplay(input) {
+  const output = querySelector(".display-area output");
+  currentInput += input;
+  output.innerText = currentInput;
+}
