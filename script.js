@@ -36,9 +36,9 @@ function operate (a, b, operator) {
 }
 
 let currentInput = "";
+const output = document.querySelector(".display-area output");
 
 function populateDisplay(input) {
-  const output = document.querySelector(".display-area output");
   currentInput += input;
   output.innerText = currentInput;
 }
