@@ -43,6 +43,13 @@ function populateDisplay(input) {
   output.innerText = currentInput;
 }
 
+function clear() {
+  currentInput = "";
+  a = "";
+  b = "";
+  operator = "";
+  output.innerText = "0";
+}
 
 const btn0 = document.querySelector(".btn-numeric-0");
 const btn1 = document.querySelector(".btn-numeric-1");
@@ -54,6 +61,7 @@ const btn6 = document.querySelector(".btn-numeric-6");
 const btn7 = document.querySelector(".btn-numeric-7");
 const btn8 = document.querySelector(".btn-numeric-8");
 const btn9 = document.querySelector(".btn-numeric-9");
+const btnClr = document.querySelector(".btn-clear");
 
 btn0.addEventListener("click", () => populateDisplay("0"));
 btn1.addEventListener("click", () => populateDisplay("1"));
@@ -65,4 +73,4 @@ btn6.addEventListener("click", () => populateDisplay("6"));
 btn7.addEventListener("click", () => populateDisplay("7"));
 btn8.addEventListener("click", () => populateDisplay("8"));
 btn9.addEventListener("click", () => populateDisplay("9"));
-
+btnClr.addEventListener("click", () => clear());
