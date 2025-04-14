@@ -36,14 +36,9 @@ function operate (a, b, operator) {
 }
 
 let currentInput = "";
-let result = "";
-
 const output = document.querySelector(".display-area output");
 
 function populateDisplay(input) {
-  if (result) {
-    currentInput = "";
-  }
   currentInput += input;
   output.innerText = currentInput;
 }
@@ -53,7 +48,6 @@ function clear() {
   a = "";
   b = "";
   operator = "";
-  result = "";
   output.innerText = "0";
 }
 
@@ -85,49 +79,18 @@ btn7.addEventListener("click", () => populateDisplay("7"));
 btn8.addEventListener("click", () => populateDisplay("8"));
 btn9.addEventListener("click", () => populateDisplay("9"));
 btnClr.addEventListener("click", () => clear());
-
-btnEql.addEventListener("click", () => { 
-  b = Number(currentInput);
-  currentInput = "";
-  result = operate(a, b, operator)
-  populateDisplay(result);
-});
+btnEql.addEventListener("click", () => operate(a, b, operator));
 
 btnDivision.addEventListener("click", () => {
-  if (currentInput) {
-    a = Number(currentInput);
-    operator = '/';
-    currentInput = "";
-  } else if (a) {
-    operator = '/'
-  } else return;
+  if (!currentInput) return;
+  a = currentInput;
+  operator = '/';
+  currentInput = "";
 });
-
 btnMultiply.addEventListener("click", () => {
-  if (currentInput) {
-    a = Number(currentInput);
-    operator = '*';
-    currentInput = "";
-  } else if (a) {
-    operator = '*'
-  } else return;
+  if (!currentInput) return;
+  operator = '*';
+  currentInput = "";
 });
-btnMinus.addEventListener("click", () => {
-  if (currentInput) {
-    a = Number(currentInput);
-    operator = '-';
-    currentInput = "";
-  } else if (a) {
-    operator = '-'
-  } else return;
-});
-
-btnPlus.addEventListener("click", () => {
-  if (currentInput) {
-    a = Number(currentInput);
-    operator = '+';
-    currentInput = "";
-  } else if (a) {
-    operator = '+'
-  } else return;
-});
+btnMinus.addEventListener("click", () => operator = '-');
+btnPlus.addEventListener("click", () => operator = '+');
