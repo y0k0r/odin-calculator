@@ -62,6 +62,7 @@ const btn7 = document.querySelector(".btn-numeric-7");
 const btn8 = document.querySelector(".btn-numeric-8");
 const btn9 = document.querySelector(".btn-numeric-9");
 const btnClr = document.querySelector(".btn-clear");
+const btnEql = document.querySelector(".btn-equal");
 
 btn0.addEventListener("click", () => populateDisplay("0"));
 btn1.addEventListener("click", () => populateDisplay("1"));
@@ -74,3 +75,4 @@ btn7.addEventListener("click", () => populateDisplay("7"));
 btn8.addEventListener("click", () => populateDisplay("8"));
 btn9.addEventListener("click", () => populateDisplay("9"));
 btnClr.addEventListener("click", () => clear());
+btnEql.addEventListener("click", () => operate(a, b, operator));
