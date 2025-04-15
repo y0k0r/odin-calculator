@@ -73,9 +73,10 @@ const btnDivision = document.querySelector(".btn-division");
 const btnMultiply = document.querySelector(".btn-multiply");
 const btnMinus = document.querySelector(".btn-minus");
 const btnPlus = document.querySelector(".btn-plus");
-const btnDecimal = document.querySelector(".btn-decimal")
-const btnBackspace = document.querySelector(".btn-backspace")
-const btnPercentage = document.querySelector(".btn-percentage")
+const btnDecimal = document.querySelector(".btn-decimal");
+const btnBackspace = document.querySelector(".btn-backspace");
+const btnPercentage = document.querySelector(".btn-percentage");
+const btnPlusMinus = document.querySelector(".btn-plus-minus");
 
 btn0.addEventListener("click", () => populateDisplay("0"));
 btn1.addEventListener("click", () => populateDisplay("1"));
@@ -88,6 +89,16 @@ btn7.addEventListener("click", () => populateDisplay("7"));
 btn8.addEventListener("click", () => populateDisplay("8"));
 btn9.addEventListener("click", () => populateDisplay("9"));
 btnClr.addEventListener("click", () => clear());
+
+btnPlusMinus.addEventListener("click", () => { 
+  if (result) {
+    currentInput = (result * -1).toString();
+  } else if (currentInput) {
+    currentInput = (Number(currentInput)* -1).toString();
+  }
+    output.innerText = currentInput;
+});
+
 btnPercentage.addEventListener("click", () => {
   if (!currentInput) return;
   
