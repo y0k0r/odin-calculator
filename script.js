@@ -41,11 +41,13 @@ let result = "";
 const output = document.querySelector(".display-area output");
 
 function populateDisplay(input) {
-  if (result) {
-    currentInput = "";
+  if (result !== "") {
+    output.innerText = result.toString();
+    result = "";
+  } else {
+    currentInput += input;
+    output.innerText = currentInput;
   }
-  currentInput += input;
-  output.innerText = currentInput;
 }
 
 function clear() {
@@ -90,6 +92,29 @@ btn8.addEventListener("click", () => populateDisplay("8"));
 btn9.addEventListener("click", () => populateDisplay("9"));
 btnClr.addEventListener("click", () => clear());
 
+function handleOperator(nextOperator) {
+  if (a && operator && currentInput) {
+    b = Number(currentInput);
+    result = operate(a, b, operator);
+    a = result;
+    populateDisplay(result);
+    operator = nextOperator;
+    currentInput = "";
+    b = "";
+  } else if (currentInput) {
+    a = Number(currentInput);
+    operator = nextOperator; 
+    currentInput = "";
+  } else if (a) {
+    operator = nextOperator;
+  } 
+}
+
+btnDivision.addEventListener("click", () => handleOperator("/"));
+btnMultiply.addEventListener("click", () => handleOperator("*"));
+btnMinus.addEventListener("click", () => handleOperator("-"));
+btnPlus.addEventListener("click", () => handleOperator("+"));
+
 btnPlusMinus.addEventListener("click", () => { 
   if (result) {
     currentInput = (result * -1).toString();
@@ -128,46 +153,10 @@ btnDecimal.addEventListener("click", () => {
 
 btnEql.addEventListener("click", () => { 
   b = Number(currentInput);
-  currentInput = "";
   result = operate(a, b, operator)
+  currentInput = "";
+  a = "";
+  b = "";
+  operator = "";
   populateDisplay(result);
-});
-
-btnDivision.addEventListener("click", () => {
-  if (currentInput) {
-    a = Number(currentInput);
-    operator = '/';
-    currentInput = "";
-  } else if (a) {
-    operator = '/'
-  } else return;
-});
-
-btnMultiply.addEventListener("click", () => {
-  if (currentInput) {
-    a = Number(currentInput);
-    operator = '*';
-    currentInput = "";
-  } else if (a) {
-    operator = '*'
-  } else return;
-});
-btnMinus.addEventListener("click", () => {
-  if (currentInput) {
-    a = Number(currentInput);
-    operator = '-';
-    currentInput = "";
-  } else if (a) {
-    operator = '-'
-  } else return;
-});
-
-btnPlus.addEventListener("click", () => {
-  if (currentInput) {
-    a = Number(currentInput);
-    operator = '+';
-    currentInput = "";
-  } else if (a) {
-    operator = '+'
-  } else return;
 });
