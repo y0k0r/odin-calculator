@@ -73,6 +73,7 @@ const btnDivision = document.querySelector(".btn-division");
 const btnMultiply = document.querySelector(".btn-multiply");
 const btnMinus = document.querySelector(".btn-minus");
 const btnPlus = document.querySelector(".btn-plus");
+const btnDecimal = document.querySelector(".btn-decimal")
 
 btn0.addEventListener("click", () => populateDisplay("0"));
 btn1.addEventListener("click", () => populateDisplay("1"));
@@ -85,6 +86,12 @@ btn7.addEventListener("click", () => populateDisplay("7"));
 btn8.addEventListener("click", () => populateDisplay("8"));
 btn9.addEventListener("click", () => populateDisplay("9"));
 btnClr.addEventListener("click", () => clear());
+
+btnDecimal.addEventListener("click", () => {
+  if (currentInput.includes(".")) return;
+  currentInput += ".";
+  output.innerText = currentInput;
+})
 
 btnEql.addEventListener("click", () => { 
   b = Number(currentInput);
