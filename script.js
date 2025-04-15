@@ -74,6 +74,7 @@ const btnMultiply = document.querySelector(".btn-multiply");
 const btnMinus = document.querySelector(".btn-minus");
 const btnPlus = document.querySelector(".btn-plus");
 const btnDecimal = document.querySelector(".btn-decimal")
+const btnBackspace = document.querySelector(".btn-backspace")
 
 btn0.addEventListener("click", () => populateDisplay("0"));
 btn1.addEventListener("click", () => populateDisplay("1"));
@@ -86,6 +87,16 @@ btn7.addEventListener("click", () => populateDisplay("7"));
 btn8.addEventListener("click", () => populateDisplay("8"));
 btn9.addEventListener("click", () => populateDisplay("9"));
 btnClr.addEventListener("click", () => clear());
+
+btnBackspace.addEventListener("click", () => {
+  if (currentInput.length > 1){
+    currentInput = currentInput.slice(0,-1);
+    output.innerText = currentInput;
+  } else {
+    currentInput = ""
+    output.innerText = "0";
+  }
+})
 
 btnDecimal.addEventListener("click", () => {
   if (currentInput.includes(".")) return;
