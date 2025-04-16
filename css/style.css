@@ -37,6 +37,9 @@ h1 {
   border-radius: 3px;
   background: #8d99ae;
 }
+.btn:hover {
+  background: #ddd;
+}
 
 .btn-secondary {
   background: #2b2d42;
