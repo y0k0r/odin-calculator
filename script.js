@@ -42,7 +42,7 @@ const output = document.querySelector(".display-area output");
 
 function populateDisplay(input) {
   if (result !== "") {
-    output.innerText = result.toString();
+    output.innerText = result.toFixed(4).toString();
     result = "";
   } else {
     currentInput += input;
