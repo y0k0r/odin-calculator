@@ -152,11 +152,13 @@ btnDecimal.addEventListener("click", () => {
 })
 
 btnEql.addEventListener("click", () => { 
-  b = Number(currentInput);
-  result = operate(a, b, operator)
-  currentInput = "";
-  a = "";
-  b = "";
-  operator = "";
-  populateDisplay(result);
+  if(a && operator && currentInput){
+    b = Number(currentInput);
+    result = operate(a, b, operator)
+    currentInput = "";
+    a = "";
+    b = "";
+    operator = "";
+    populateDisplay(result);
+  }
 });
